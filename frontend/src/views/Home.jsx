@@ -5,7 +5,8 @@ function Home() {
   return (
     <div className="">
       <NavbarHome />
-
+      <NavbarHome />
+      
       <div className="relative translate-y-48  -translate-x-11">
         <svg
           height="800"
