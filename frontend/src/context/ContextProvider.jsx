@@ -31,7 +31,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   return (
-    <StateContext.Provider
+    <StateContext.Provider 
       value={{
         user,
         setUser,
@@ -40,6 +40,7 @@ export const ContextProvider = ({ children }) => {
         notification,
         setNotification,
       }}
+      
     >
       {children}
     </StateContext.Provider>
