@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axiosClient from "../axios-client.js";
+import { useDispatch, useSelector } from "react-redux";
+import pencil from "../assets/pencil.png";
+import bin from "../assets/bin.png";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+  const boards = useSelector((state) => state.boards);
+
   const [newProjectData, setNewProjectData] = useState({
     title: "",
     description: "",
@@ -42,73 +47,81 @@ const Projects = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-4">Liste des Projets</h2>
-      <ul className="list-disc pl-4">
-        {Array.isArray(projects) && projects.length > 0 ? (
-          projects.map((project) => (
-            <li key={project.id} className="mb-2">
-              <span className="text-lg font-semibold">{project.title}</span> -{" "}
-              {project.description}
-              <div className="mt-2">
-                <button
-                  onClick={() => handleUpdateProject(project.id)}
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 mr-2 rounded"
-                >
-                  Mettre à Jour
-                </button>
-                <button
-                  onClick={() => handleDeleteProject(project.id)}
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
-                >
-                  Supprimer
-                </button>
-              </div>
-            </li>
-          ))
-        ) : (
-          <li>Aucun projet trouvé</li>
-        )}
-      </ul>
+    <div className="container mx-auto p-4  flex flex-col items-start justify-start bg-white dark:bg-slate-900  text-white">
+      <h3 className="dark:text-gray-300 text-gray-600 font-semibold mx-4 mb-8">
+        All boards ({boards?.length})
+      </h3>
 
-      <h2 className="text-2xl font-bold my-4">Ajouter un Projet</h2>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">
-          Titre:
-        </label>
-        <input
-          type="text"
-          value={newProjectData.title}
-          onChange={(e) =>
-            setNewProjectData({ ...newProjectData, title: e.target.value })
-          }
-          className="mt-1 p-2 border rounded-md w-full"
-        />
+      <div className="flex gap-24  items-center  flex-wrap  px-10">
+        {boards.map((board, index) => (
+          <div
+            className="flex w-64  h-40 flex-col  justify-between   cursor-pointer  bg-midnightblue   rounded-3xl  items-start space-x-2  py-4 px-4 "
+            key={index}
+            // onClick={()=>{
+            //         dispatch(boardsSlice.actions.setBoardActive({index}))
+            // }}
+          >
+            <div className="flex  items-center justify-between w-full" >
+              
+              <p className="text-lg  font-bold ">{board.name}</p>
+              <img className="h-4" src={pencil} />
+            </div>
+            <div className="flex w-full  justify-end">
+             
+              <img className="h-4 pr-2" src={bin} />
+            </div>
+          </div>
+        ))}
       </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">
-          Description:
-        </label>
-        <input
-          type="text"
-          value={newProjectData.description}
-          onChange={(e) =>
-            setNewProjectData({
-              ...newProjectData,
-              description: e.target.value,
-            })
-          }
-          className="mt-1 p-2 border rounded-md w-full"
-        />
-      </div>
-      <button
-        onClick={handleAddProject}
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Ajouter le Projet
-      </button>
     </div>
   );
 };
 
 export default Projects;
+
+// import { React, useState } from "react";
+// import { Navigate, Outlet, Link } from "react-router-dom";
+// import { useStateContext } from "../context/ContextProvider";
+// import axiosClient from "../axios-client.js";
+// import { useEffect } from "react";
+// import logo2 from "../assets/logo2.png";
+// import iconDown from "../assets/arrowdown.png";
+// import iconUp from "../assets/arrowup.png";
+// import HeaderDropdown from "./HeaderDropdown.jsx";
+// import AddEditBoardModal from "../modals/AddEditBoardModal.jsx";
+// import { useDispatch, useSelector } from "react-redux";
+// import AddEditTaskModal from "../modals/AddEditTaskModal.jsx";
+
+// import boardSlices from "../redux/boardSlice";
+
+// function AllBoards({ type }) {
+//   const [boardType, setBoardType] = useState("add");
+//   const boards = useSelector((state) => state.boards);
+//   const board = boards.find((board) => board.isActive);
+//   return (
+//     <div>
+//       <div className="  absolute left-40 top-14  container flex flex-col items-start mx-24 justify-start bg-white dark:bg-slate-900  text-white  w-screen h-screen py-14">
+//         <h3 className="dark:text-gray-300 text-gray-600 font-semibold mx-4 mb-8">
+//           All boards ({boards?.length})
+//         </h3>
+
+//         <div className="flex gap-10  items-center flex-wrap  px-10">
+//           {boards.map((board, index) => (
+//             <div
+//               className="flex w-60  h-40  justify-center cursor-pointer  bg-midnightblue   rounded-3xl  items-center space-x-2  py-4 "
+//               key={index}
+//               // onClick={()=>{
+//               //         dispatch(boardsSlice.actions.setBoardActive({index}))
+//               // }}
+//             >
+//               {/* <img src={boardicon} className='h-6'/> */}
+//               <p className="text-lg  font-bold ">{board.name}</p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default AllBoards;
