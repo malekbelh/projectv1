@@ -4,7 +4,11 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+<<<<<<< HEAD
   darkMode: 'class',
+=======
+  darkMode:'class',
+>>>>>>> ce129374756e052c3cfba832a02aa01e2f945cbf
   theme: {
     extend: {
       colors: {
@@ -12,7 +16,14 @@ export default {
         orange: "#fbbc05",
         darkgoldenrod: "#c78a00",
         midnightblue: "#212177",
+<<<<<<< HEAD
      
+=======
+        gray: {
+            100: "#8e8d8d",
+            200: "rgba(0, 0, 0, 0.25)",
+        },
+>>>>>>> ce129374756e052c3cfba832a02aa01e2f945cbf
         lightgray: "#cfd5d6",
 
         dimgray: "#5d5d5d",
@@ -30,6 +41,13 @@ export default {
     },
   },
   plugins: [
+<<<<<<< HEAD
     require('tailwind-scrollbar-hide'),
   ],
 };
+=======
+
+    require('tailwind-scrollbar-hide'),
+  ],
+}
+>>>>>>> ce129374756e052c3cfba832a02aa01e2f945cbf

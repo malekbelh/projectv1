@@ -6,6 +6,7 @@ function Home() {
   return (
     <div className="flex flex-col">
       <NavbarHome />
+<<<<<<< HEAD
       <div className="flex flex-col md:flex-row justify-around mt-28 mx-3 items-center">
         <div className="md:mr-5  text-white text-center md:text-left  font-bold">
           <p className="md:mr-5  text-white text-center md:text-left text-5xl font-bold">{`Empower Your Projects  `}</p>
@@ -20,6 +21,23 @@ function Home() {
           <input
             className="h-10 rounded-2xl text-sm mr-3  w-80 text-dimgray px-4 font-normal"
             placeholder="Email"
+=======
+      <NavbarHome />
+      
+      <div className="relative translate-y-48  -translate-x-11">
+        <svg
+          height="800"
+          width="1679"
+          viewBox="0 0 1679 840"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 778.267C104.185 689.267 419.554 338.165 709.24 509.766C1071.35 724.267 1296.12 986.268 1550.73 732.767C1805.33 479.266 1623.25 120.264 1433.97 43.7638C1282.54 -17.4365 1148.67 3.59694 1100.66 21.7637"
+            stroke="white"
+            stroke-width="5"
+            stroke-dasharray="20 20"
+>>>>>>> ce129374756e052c3cfba832a02aa01e2f945cbf
           />
           <Link to="/signup">
             <button className=" h-10 bg-[#FFC107] text-[#212177] transition-transform transform hover:scale-105  items-center text-xl w-40  pb-1  text-midnightblue  justify-center  font-medium  m-6 rounded-xl  shadow-[-6px_8px_10px_rgba(0,_0,_0,_0.4)]">

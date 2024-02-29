@@ -11,6 +11,7 @@ import { Navigate } from "react-router-dom";
 import ResetPassword from "./views/ResetPassword.jsx";
 import NewPassword from "./views/NewPassword.jsx";
 import Projects from "./components/Projects.jsx";
+import AllBoards from "./components/AllBoards.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
